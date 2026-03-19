@@ -4,20 +4,39 @@ require_once __DIR__ . '/../includes/db.php';
 
 $db = getDB();
 
-// Filter by level
+// Detect if 'published' or 'active' column exists
+$columns = $db->query("SHOW COLUMNS FROM Programmes")->fetchAll(PDO::FETCH_COLUMN);
+$statusFilter = '';
+if (in_array('published', $columns)) {
+    $statusFilter = 'p.published = 1';
+} elseif (in_array('active', $columns)) {
+    $statusFilter = 'p.active = 1';
+}
+
+// Filter by level (1 = UG, 2 = PG)
 $levelFilter = isset($_GET['level']) && in_array($_GET['level'], ['1','2']) ? (int)$_GET['level'] : null;
 
+// Build SQL query
 $sql = "SELECT p.*, l.LevelName, s.Name AS LeaderName,
                (SELECT COUNT(*) FROM ProgrammeModules pm WHERE pm.ProgrammeID = p.ProgrammeID) AS ModuleCount
         FROM Programmes p
         JOIN Levels l ON p.LevelID = l.LevelID
-        LEFT JOIN Staff s ON p.ProgrammeLeaderID = s.StaffID
-        WHERE p.is_published = 1";
+        LEFT JOIN Staff s ON p.ProgrammeLeaderID = s.StaffID";
+
+$whereParts = [];
 $params = [];
+
+if ($statusFilter) {
+    $whereParts[] = $statusFilter;
+}
 if ($levelFilter) {
-    $sql .= " AND p.LevelID = ?";
+    $whereParts[] = 'p.LevelID = ?';
     $params[] = $levelFilter;
 }
+if (!empty($whereParts)) {
+    $sql .= ' WHERE ' . implode(' AND ', $whereParts);
+}
+
 $sql .= " ORDER BY l.LevelID, p.ProgrammeName";
 
 $stmt = $db->prepare($sql);
@@ -65,7 +84,7 @@ require_once __DIR__ . '/../templates/header.php';
             ?>
             <a href="programme-detail.php?id=<?= $p['ProgrammeID'] ?>" class="programme-card fade-up" style="animation-delay:<?= min($i * 0.06, 0.5) ?>s">
                 <div class="card-img">
-                    <?php if ($p['Image']): ?>
+                    <?php if (!empty($p['Image'])): ?>
                         <img src="<?= htmlspecialchars($p['Image']) ?>" alt="">
                     <?php else: ?>
                         <?= $emoji ?>
@@ -77,7 +96,7 @@ require_once __DIR__ . '/../templates/header.php';
                 <div class="card-body">
                     <div class="card-title"><?= htmlspecialchars($p['ProgrammeName']) ?></div>
                     <div class="card-leader">Led by <?= htmlspecialchars($p['LeaderName'] ?? 'TBC') ?></div>
-                    <div class="card-desc"><?= htmlspecialchars($p['Description'] ?? '') ?></div>
+                    <div class="card-desc"><?= htmlspecialchars(substr($p['Description'] ?? '', 0, 150)) ?>…</div>
                 </div>
                 <div class="card-footer">
                     <span class="card-modules"><?= $p['ModuleCount'] ?> modules · <?= htmlspecialchars($p['LevelName']) ?></span>
