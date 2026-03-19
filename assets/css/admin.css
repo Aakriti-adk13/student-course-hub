@@ -55,7 +55,7 @@
     color: rgba(255,255,255,0.65);
     text-decoration: none;
     font-size: 0.875rem;
-    transition: background 0.15s, color 0.15s;
+    /* transition: background 0.15s, color 0.15s; */
 }
 .admin-nav-list li a:hover {
     background: rgba(255,255,255,0.06);
