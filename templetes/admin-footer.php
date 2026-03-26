@@ -1,6 +1,6 @@
 <?php
 /**
- * templates/admin-footer.php
+ * templetes/admin-footer.php
  * 
  * Admin area footer template
  */

@@ -34,7 +34,7 @@ $errorMessages = [
 ];
 $errorMsg = isset($_GET['error']) ? ($errorMessages[$_GET['error']] ?? 'An error occurred.') : '';
 
-require_once __DIR__ . '/../templates/admin-header.php';
+require_once __DIR__ . '/../templetes/admin-header.php';
 ?>
 
 <?php if ($errorMsg): ?>
@@ -176,4 +176,4 @@ function toggleYear(checkbox) {
 }
 </script>
 
-<?php require_once __DIR__ . '/../templates/admin-footer.php'; ?>
+<?php require_once __DIR__ . '/../templetes/admin-footer.php'; ?>

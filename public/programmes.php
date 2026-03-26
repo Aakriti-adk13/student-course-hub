@@ -47,7 +47,7 @@ $programmes = $stmt->fetchAll();
 $pageTitle = 'All Programmes';
 $pageDesc  = 'Browse all undergraduate and postgraduate programmes.';
 
-require_once __DIR__ . '/../templates/header.php';
+require_once __DIR__ . '/../templetes/header.php';
 ?>
 
 <section style="background:var(--navy);padding:2.5rem 0;color:var(--white);">
@@ -111,4 +111,4 @@ require_once __DIR__ . '/../templates/header.php';
     </div>
 </section>
 
-<?php require_once __DIR__ . '/../templates/footer.php'; ?>
+<?php require_once __DIR__ . '/../templetes/footer.php'; ?>

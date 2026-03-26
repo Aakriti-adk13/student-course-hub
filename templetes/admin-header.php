@@ -1,6 +1,6 @@
 <?php
 /**
- * templates/admin-header.php
+ * templetes/admin-header.php
  * 
  * Admin area header template
  * Required variables: $pageTitle, $activePage

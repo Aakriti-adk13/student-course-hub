@@ -22,7 +22,7 @@ $featured = $db->query(
      ORDER BY RAND() LIMIT 4"
 )->fetchAll();
 
-require_once __DIR__ . '/../templates/header.php';
+require_once __DIR__ . '/../templetes/header.php';
 ?>
 
 <!-- HERO -->
@@ -119,5 +119,5 @@ require_once __DIR__ . '/../templates/header.php';
     <a href="programmes.php" class="btn btn-primary">Register Interest</a>
 </section>
 
-<?php require_once __DIR__ . '/../templates/footer.php'; 
+<?php require_once __DIR__ . '/../templetes/footer.php'; 
 ?>

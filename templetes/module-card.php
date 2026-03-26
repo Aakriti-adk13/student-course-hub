@@ -13,13 +13,13 @@
  * Usage (card mode, e.g. inside programme-detail):
  *   $mode = 'card';
  *   foreach ($modules as $module) {
- *       include __DIR__ . '/../templates/module-card.php';
+ *       include __DIR__ . '/../templetes/module-card.php';
  *   }
  *
  * Usage (row mode, e.g. inside modules.php table tbody):
  *   $mode = 'row';
  *   foreach ($modules as $module) {
- *       include __DIR__ . '/../templates/module-card.php';
+ *       include __DIR__ . '/../templetes/module-card.php';
  *   }
  */
 

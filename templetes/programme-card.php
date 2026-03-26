@@ -12,7 +12,7 @@
  * Usage example:
  *   foreach ($programmes as $i => $programme) {
  *       $index = $i;
- *       include __DIR__ . '/../templates/programme-card.php';
+ *       include __DIR__ . '/../templetes/programme-card.php';
  *   }
  */
 

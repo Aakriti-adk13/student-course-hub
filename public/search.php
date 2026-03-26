@@ -80,7 +80,7 @@ if (strlen($query) >= 2) {
 }
 
 $pageTitle = $query ? "Search: {$query}" : 'Search';
-require_once __DIR__ . '/../templates/header.php';
+require_once __DIR__ . '/../templetes/header.php';
 ?>
 
 <div class="search-header">
@@ -171,4 +171,4 @@ require_once __DIR__ . '/../templates/header.php';
     </div>
 </section>
 
-<?php require_once __DIR__ . '/../templates/footer.php'; ?>
+<?php require_once __DIR__ . '/../templetes/footer.php'; ?>

@@ -37,7 +37,7 @@ if (!$programme) {
 }
 
 $pageTitle = $programme['ProgrammeName'] ?? 'Programme Detail';
-require_once __DIR__ . '/../templates/header.php';
+require_once __DIR__ . '/../templetes/header.php';
 ?>
 
 <section class="section">
@@ -51,4 +51,4 @@ require_once __DIR__ . '/../templates/header.php';
     </div>
 </section>
 
-<?php require_once __DIR__ . '/../templates/footer.php'; ?>
+<?php require_once __DIR__ . '/../templetes/footer.php'; ?>

@@ -20,7 +20,7 @@ $programmes = $db->query(
      ORDER BY l.LevelID, p.ProgrammeName"
 )->fetchAll();
 
-require_once __DIR__ . '/../templates/admin-header.php';
+require_once __DIR__ . '/../templetes/admin-header.php';
 ?>
 
 <!-- Flash messages -->
@@ -116,4 +116,4 @@ require_once __DIR__ . '/../templates/admin-header.php';
     </table>
 </div>
 
-<?php require_once __DIR__ . '/../templates/admin-footer.php'; ?>
+<?php require_once __DIR__ . '/../templetes/admin-footer.php'; ?>

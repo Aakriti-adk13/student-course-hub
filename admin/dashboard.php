@@ -46,7 +46,7 @@ $topProgrammes = $db->query(
 )->fetchAll();
 
 //CORRECT HEADER PATH (matching your other admin files)
-require_once __DIR__ . '/../templates/admin-header.php';
+require_once __DIR__ . '/../templetes/admin-header.php';
 ?>
 
 <!-- Stats -->
@@ -126,4 +126,4 @@ require_once __DIR__ . '/../templates/admin-header.php';
 </div>
 
 <!-- Footer (matching the pattern used in other admin files) -->
-<?php require_once __DIR__ . '/../templates/admin-footer.php'; ?>
+<?php require_once __DIR__ . '/../templetes/admin-footer.php'; ?>

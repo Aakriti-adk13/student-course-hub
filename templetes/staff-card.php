@@ -15,7 +15,7 @@
  *   $mode = 'grid';
  *   foreach ($staff as $i => $staffMember) {
  *       $index = $i;
- *       include __DIR__ . '/../templates/staff-card.php';
+ *       include __DIR__ . '/../templetes/staff-card.php';
  *   }
  */
 
