@@ -20,7 +20,7 @@ if (in_array('published', $progColumns)) {
 }
 
 // Fetch programme details
-$sql = "SELECT p.*, l.LevelName, s.Name AS LeaderName, s.Image AS LeaderImage
+$sql = "SELECT p.*, l.LevelName, s.Name AS LeaderName
         FROM Programmes p
         JOIN Levels l ON p.LevelID = l.LevelID
         LEFT JOIN Staff s ON p.ProgrammeLeaderID = s.StaffID
@@ -152,12 +152,7 @@ require_once __DIR__ . '/../templetes/header.php';
                     <h3>Programme Leader</h3>
                     <div class="staff-info">
                         <div class="staff-avatar" aria-hidden="true">
-                            <?php if (!empty($programme['LeaderImage'])): ?>
-                                <img src="<?= htmlspecialchars($programme['LeaderImage']) ?>"
-                                     alt="<?= htmlspecialchars($programme['LeaderName']) ?>">
-                            <?php else: ?>
-                                <?= htmlspecialchars($initials) ?>
-                            <?php endif; ?>
+                            <?= htmlspecialchars($initials) ?>
                         </div>
                         <div>
                             <div class="staff-name"><?= htmlspecialchars($programme['LeaderName']) ?></div>
